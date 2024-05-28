@@ -1,0 +1,18 @@
+{
+  "name": "dev",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {},
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@axe-core/playwright": "^4.9.1",
+    "@playwright/test": "^1.44.1",
+    "@types/jest": "^29.5.12",
+    "@types/node": "^20.12.12",
+    "axe-playwright": "^2.0.1",
+    "playwright": "^1.44.1"
+  }
+}
