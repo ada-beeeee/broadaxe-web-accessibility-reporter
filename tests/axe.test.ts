@@ -1,25 +1,35 @@
 import { test, expect } from '@playwright/test'
 import AxeBuilder from '@axe-core/playwright'
+import { createHtmlReport } from 'axe-html-reporter'
 
-test.describe('DEC Homepage', () => {
+test.describe('DEC website', () => {
 
-  test('Scan page for accessibility issues', async ({ page }, testInfo) => {
-    await page.goto('https://www.environmentalcaucus.com/', { waitUntil: "networkidle" })
+  const scanPages = [
+    'https://www.environmentalcaucus.com/',
+    'https://www.environmentalcaucus.com/florida-environmental-caucus/florida-environmental-caucus-officers/',
+    'https://www.environmentalcaucus.com/latest-news/',
+    'https://www.environmentalcaucus.com/decf-events/'
+  ]
 
-    // await page.screenshot({ path: 'artifacts/before_report.png' })
+  for (const scanPage of scanPages) {
+    test(`Scan for accessibility issues: ${scanPage}`, async ({ page }) => {
+      await page.goto(scanPage, { waitUntil: "networkidle" })
+      
+      const pageTitle = await page.title()
 
-    const accessibilityScanResults = await new AxeBuilder({ page })
-      .withTags(['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa'])
-      .analyze()
+      const accessibilityScanResults = await new AxeBuilder({ page })
+        .withTags(['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa'])
+        .analyze()
 
-      await testInfo.attach('accessibility-scan-results', {
-        body: JSON.stringify(accessibilityScanResults, null, 2),
-        contentType: 'application/json'
+      createHtmlReport({
+        results: accessibilityScanResults,
+        options: {
+          outputDir: 'artifacts',
+          reportFileName: pageTitle + ' - axe report.html'
+        }
       })
-
-    // await page.screenshot({ path: 'artifacts/after_report.png' })
-
-    expect(accessibilityScanResults.violations).toEqual([])
-
-  })
+      
+      expect(accessibilityScanResults.violations).toEqual([])
+   }) 
+  }
 })
