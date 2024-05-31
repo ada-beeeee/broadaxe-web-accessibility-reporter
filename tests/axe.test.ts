@@ -24,12 +24,12 @@ test.describe('DEC website', () => {
       createHtmlReport({
         results: accessibilityScanResults,
         options: {
-          outputDir: 'artifacts',
+          outputDir: 'test-results',
           reportFileName: pageTitle + ' - axe report.html'
         }
       })
       
-      expect(accessibilityScanResults.violations).toEqual([])
+      expect(accessibilityScanResults.violations.length).toEqual(0)
    }) 
   }
 })
