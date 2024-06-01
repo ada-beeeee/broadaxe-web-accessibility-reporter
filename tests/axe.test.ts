@@ -1,19 +1,20 @@
+import fs from 'fs'
+import path from 'path'
 import { test, expect } from '@playwright/test'
 import AxeBuilder from '@axe-core/playwright'
 import { createHtmlReport } from 'axe-html-reporter'
+import { parse } from 'csv-parse/sync'
 
 test.describe('DEC website', () => {
 
-  const scanPages = [
-    'https://www.environmentalcaucus.com/',
-    'https://www.environmentalcaucus.com/florida-environmental-caucus/florida-environmental-caucus-officers/',
-    'https://www.environmentalcaucus.com/latest-news/',
-    'https://www.environmentalcaucus.com/decf-events/'
-  ]
+  const scanPages = parse(fs.readFileSync(path.join(__dirname, '..', 'test-data', 'scanpages.csv')), {
+    columns: true,
+    skip_empty_lines: true
+  })
 
   for (const scanPage of scanPages) {
-    test(`Scan for accessibility issues: ${scanPage}`, async ({ page }) => {
-      await page.goto(scanPage, { waitUntil: "networkidle" })
+    test(`Scan for accessibility issues: ${scanPage.url}`, async ({ page }) => {
+      await page.goto(scanPage.url, { waitUntil: "networkidle" })
       
       const pageTitle = await page.title()
 

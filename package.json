@@ -15,5 +15,8 @@
     "axe-html-reporter": "^2.2.3",
     "axe-playwright": "^2.0.1",
     "playwright": "^1.44.1"
+  },
+  "dependencies": {
+    "csv-parse": "^5.5.6"
   }
 }
