@@ -5,7 +5,7 @@ import AxeBuilder from '@axe-core/playwright'
 import { createHtmlReport } from 'axe-html-reporter'
 import { parse } from 'csv-parse/sync'
 
-test.describe('DEC website', () => {
+test.describe('Test pages with axe', () => {
 
   const scanPages = parse(fs.readFileSync(path.join(__dirname, '..', 'test-data', 'scanpages.csv')), {
     columns: true,
@@ -13,7 +13,7 @@ test.describe('DEC website', () => {
   })
 
   for (const scanPage of scanPages) {
-    test(`Scan for accessibility issues: ${scanPage.url}`, async ({ page }) => {
+    test(`Scan page: ${scanPage.url}`, async ({ page }) => {
       await page.goto(scanPage.url, { waitUntil: "networkidle" })
       
       const pageTitle = await page.title()
