@@ -17,7 +17,7 @@ The quality of a README description often differentiates a good project from a b
 ## How to Install and Configure the Project
 
 - Clone this repository to your desired workspace.
-- See: [Cloning a repository](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository)
+-- See: [Cloning a repository](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository)
 
 ## How to Use the Project
 
