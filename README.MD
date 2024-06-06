@@ -17,9 +17,9 @@ The quality of a README description often differentiates a good project from a b
 ## How to Install and Configure the Project
 
 - Clone this repository to your desired workspace.
--- See: [Cloning a repository](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository)
+- - See: [Cloning a repository](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository)
 
-## How to Use the Project
+## How to Run Tests and Read Reports
 
 Provide instructions and examples so users/contributors can use the project. This will make it easy for them in case they encounter a problem – they will always have a place to reference what is expected.
 
