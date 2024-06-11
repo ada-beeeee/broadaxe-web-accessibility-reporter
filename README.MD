@@ -2,7 +2,7 @@
 
 ## Description:
 
-Broadaxe is a set of [Playwright]<https://playwright.dev/> tests for running automated [axe accessibility scans]<https://playwright.dev/docs/accessibility-testing> against a user-specified list of web pages.
+Broadaxe is a set of [Playwright](https://playwright.dev/) tests for running automated [axe accessibility scans](https://playwright.dev/docs/accessibility-testing) against a user-specified list of web pages.
 If any accessibiilty violations are found during a scan, Broadaxe will generate an HTML report for each page that contains issues.
 
 ### Why didn't I use an existing tool instead?
@@ -34,7 +34,7 @@ If any accessibiilty violations are found during a scan, Broadaxe will generate 
 - By default, axe tests in this repo will include any violations of A-level or AA-level <WCAG>(https://www.w3.org/TR/WCAG21/) rules (including WCAG 2.0 and WCAG 2.1).
 
 ## Acknowledgements
-- Thanks @lpelypenko for the great <axe-html-reporter>(https://github.com/lpelypenko/axe-html-reporter)!
+- Thanks @lpelypenko for the great [axe-html-reporter](https://github.com/lpelypenko/axe-html-reporter)!
 
 ## License
 
