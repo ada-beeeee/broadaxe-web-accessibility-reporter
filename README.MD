@@ -5,11 +5,11 @@
 Broadaxe is a set of [Playwright]<https://playwright.dev/> tests for running automated [axe accessibility scans]<https://playwright.dev/docs/accessibility-testing> against a user-specified list of web pages.
 If any accessibiilty violations are found during a scan, Broadaxe will generate an HTML report for each page that contains issues.
 
-### Why not use an existing tool instead?
+### Why didn't I use an existing tool instead?
 
 - I wanted a free, open-source tool that could scan a large number of pages at once. I hadn't found a tool that easily allowed for bulk scanning of a large number of pages.
-- I opted for Playwright because it already has support for axe scans, along with other desirable features for automation.
-- If I want to add a slightly more advanced UI test for component accessibility testing, Playwright supports this well.
+- I opted for Playwright because it already has customizable support for axe scans, along with many other desirable features for automation.
+- Later, if I want to add a slightly more advanced UI test for component accessibility testing, Playwright supports this well.
 
 ## How to Install and Configure the Project
 
@@ -27,13 +27,14 @@ If any accessibiilty violations are found during a scan, Broadaxe will generate 
 - By default, the csv file contains a set of Google URLs for testing. Replace these with the list of URLs you wish to test for your website - this can include `localhost` URLs.
 - Save the csv file and run `npx playwright test` again.
 
-## Credits
+### Other configuration options
+- If you'd like to customize your test suite further, please start by familiarizing yourself with the basics of <Playwright configuration>(https://playwright.dev/docs/test-configuration).
+- By default, parallelization is turned off in this repo, but you may wish to turn it back on (with `fullyParallel: true`) if you have appropriate test resources.
+- You can also customize the axe scan to include or exclude certain items - see the <Playwright accessibility documentation>(https://playwright.dev/docs/accessibility-testing#creating-a-fixture).
+- By default, axe tests in this repo will include any violations of A-level or AA-level <WCAG>(https://www.w3.org/TR/WCAG21/) rules (including WCAG 2.0 and WCAG 2.1).
 
-If you worked on the project as a team or an organization, list your collaborators/team members. You should also include links to their GitHub profiles and social media too.
-
-Also, if you followed tutorials or referenced a certain material that might help the user to build that particular project, include links to those here as well.
-
-This is just a way to show your appreciation and also to help others get a first hand copy of the project.
+## Acknowledgements
+- Thanks @lpelypenko for the great <axe-html-reporter>(https://github.com/lpelypenko/axe-html-reporter)!
 
 ## License
 
