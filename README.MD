@@ -1,6 +1,6 @@
 # Broadaxe Web Accessibility Reporter
 
-## Description:
+## Description
 
 Broadaxe is a set of [Playwright](https://playwright.dev/) tests for running automated [axe accessibility scans](https://playwright.dev/docs/accessibility-testing) against a user-specified list of web pages.
 If any accessibiilty violations are found during a scan, Broadaxe will generate an HTML report for each page that contains issues.
@@ -15,10 +15,8 @@ If any accessibiilty violations are found during a scan, Broadaxe will generate 
 
 ### First-time setup
 - Clone this repository to your desired workspace.
-- Install dependencies:
-        npm install
-- To confirm successful setup, run the sample tests:
-        npx playwright test
+- Install dependencies: `npm install`
+- To confirm successful setup, run the sample tests: `npx playwright test`
 - After tests finish, the console output will summarize the results.
 - In the `test-results` folder of your local repo, each page should have an .HTML file with detailed axe results from the last scan. (These results are overwritten with each test run, so make sure to back up any results you wish to keep for reference.)
 
@@ -31,7 +29,7 @@ If any accessibiilty violations are found during a scan, Broadaxe will generate 
 - If you'd like to customize your test suite further, please start by familiarizing yourself with the basics of <Playwright configuration>(https://playwright.dev/docs/test-configuration).
 - By default, parallelization is turned off in this repo, but you may wish to turn it back on (with `fullyParallel: true`) if you have appropriate test resources.
 - You can also customize the axe scan to include or exclude certain items - see the <Playwright accessibility documentation>(https://playwright.dev/docs/accessibility-testing#creating-a-fixture).
-- By default, axe tests in this repo will include any violations of A-level or AA-level <WCAG>(https://www.w3.org/TR/WCAG21/) rules (including WCAG 2.0 and WCAG 2.1).
+- By default, axe tests in this repo will include any violations of A-level or AA-level [WCAG](https://www.w3.org/TR/WCAG21/) rules (including WCAG 2.0 and WCAG 2.1).
 
 ## Acknowledgements
 - Thanks @lpelypenko for the great [axe-html-reporter](https://github.com/lpelypenko/axe-html-reporter)!
