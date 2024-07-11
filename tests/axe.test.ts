@@ -16,7 +16,7 @@ test.describe('Test pages with axe', () => {
     test(`Scan page: ${scanPage.url}`, async ({ page }) => {
       await page.goto(scanPage.url, { waitUntil: "networkidle" })
       
-      const pageTitle = await page.title()
+      const pageTitle = (await page.title()).replace(/\W/g, '')
 
       const accessibilityScanResults = await new AxeBuilder({ page })
         .withTags(['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa'])
